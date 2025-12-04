@@ -98,14 +98,14 @@ public class NewRelease {
         JPanel grid = new JPanel(new GridLayout(0, 3, 20, 20));
         grid.setOpaque(false);
 
-        List<Book> sample = Arrays.asList(
-            new Book("E_commece Essentials", "by Jhon Ilpoulous", "600 DA", "BooksImg\\\\\\\\ImgE_commerce/E_commeceEssentials.jpg"),
-            new Book("Numerical Analysis", "C. Programmer", "2000 DA", "BooksImg\\\\ImgMath/NumericalAnalysis.jpg"),
-            new Book("Princip Of Physics", "D. Scientist", "1500 DA", "BooksImg\\\\ImgPhysics/PrincipOfPhysics.jpg"),
-            new Book("Sahih El Boukhari", "Imame Boukhari", "9900 DA", "BooksImg\\\\ImgIslamic/Boukhari.jpg"),
-            new Book("Data Structures", "F. Engineer", "1800 DA", "BooksImg\\\\ImgAlgo/DataStructures.jpg"),
-            new Book("Organic Chemistry", "G. Researcher", "1400 DA", "BooksImg\\\\ImgChemistry/OrganicChemistry.jpg")
-        );
+            List<Book> sample = Arrays.asList(
+                new Book("E_commece Essentials", "by Jhon Ilpoulous", BooksCatalog.getPrice("E_commece Essentials"), "BooksImg\\\\\\\\ImgE_commerce/E_commeceEssentials.jpg"),
+                new Book("Numerical Analysis", "C. Programmer", BooksCatalog.getPrice("Numerical Analysis"), "BooksImg\\\\ImgMath/NumericalAnalysis.jpg"),
+                new Book("Princip Of Physics", "D. Scientist", BooksCatalog.getPrice("Princip Of Physics"), "BooksImg\\\\ImgPhysics/PrincipOfPhysics.jpg"),
+                new Book("Sahih El Boukhari", "Imame Boukhari", BooksCatalog.getPrice("Sahih El Boukhari"), "BooksImg\\\\ImgIslamic/Boukhari.jpg"),
+                new Book("Data Structures", "F. Engineer", BooksCatalog.getPrice("Data Structures"), "BooksImg\\\\ImgAlgo/DataStructures.jpg"),
+                new Book("Organic Chemistry", "G. Researcher", BooksCatalog.getPrice("Organic Chemistry"), "BooksImg\\\\ImgChemistry/OrganicChemistry.jpg")
+            );
 
         for (Book b : sample) grid.add(createBookCard(b, frame));
 

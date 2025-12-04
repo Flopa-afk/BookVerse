@@ -191,7 +191,7 @@ public class E_commerceSimplifiedBook {
         card.add(desc);
         card.add(Box.createVerticalStrut(14));
 
-        JLabel price = new JLabel("1500 DA");
+        JLabel price = new JLabel(BooksCatalog.getPrice("E_commerce Simplified"));
         price.setFont(new Font("SansSerif", Font.BOLD, 20));
         price.setForeground(new Color(120, 0, 180));
         card.add(price);

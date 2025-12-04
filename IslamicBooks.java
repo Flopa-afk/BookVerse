@@ -99,12 +99,12 @@ public class IslamicBooks{
         grid.setOpaque(false);
 
         List<Book> sample = Arrays.asList(
-            new Book("Aquidat El Tawhid", "Dr. Saleh El fawzan", "1200 DA", "BooksImg\\ImgIslamic/Aquidat_Tawhid.jpg"),
-            new Book("Oumdat El Tafsir", "Imam Ibn Kathir", "6700DA", "BooksImg\\ImgIslamic/Oumdat_El_Tafsir.jpg"),
-            new Book("El Rahique El Makhtoum", "Imam Moubarkfouri", "2500 DA", "BooksImg\\ImgIslamic/Rahique_Makhtoum.jpg"),
-            new Book("Sahih El Boukhari", "Imame Boukhari", "8000 DA", "BooksImg\\ImgIslamic/Boukhari.jpg"),
-            new Book("Tadim El Salat", "Dr.Abd El Razeque El Badr", "1500 DA", "BooksImg\\ImgIslamic/Tadim_Salat.jpg"),
-            new Book("Moulakhas El Feqhi", "Dr. Saleh El fawzan", "3000 DA", "BooksImg\\ImgIslamic/El_Moulakhas_El_Fequhi.jpg")
+            new Book("Aquidat El Tawhid", "Dr. Saleh El fawzan", BooksCatalog.getPrice("Aquidat El Tawhid"), "BooksImg\\ImgIslamic/Aquidat_Tawhid.jpg"),
+            new Book("Oumdat El Tafsir", "Imam Ibn Kathir", BooksCatalog.getPrice("Oumdat El Tafsir"), "BooksImg\\ImgIslamic/Oumdat_El_Tafsir.jpg"),
+            new Book("El Rahique El Makhtoum", "Imam Moubarkfouri", BooksCatalog.getPrice("El Rahique El Makhtoum"), "BooksImg\\ImgIslamic/Rahique_Makhtoum.jpg"),
+            new Book("Sahih El Boukhari", "Imame Boukhari", BooksCatalog.getPrice("Sahih El Boukhari"), "BooksImg\\ImgIslamic/Boukhari.jpg"),
+            new Book("Tadim El Salat", "Dr.Abd El Razeque El Badr", BooksCatalog.getPrice("Tadim El Salat"), "BooksImg\\ImgIslamic/Tadim_Salat.jpg"),
+            new Book("Moulakhas El Feqhi", "Dr. Saleh El fawzan", BooksCatalog.getPrice("Moulakhas El Feqhi"), "BooksImg\\ImgIslamic/El_Moulakhas_El_Fequhi.jpg")
         );
 
         for (Book b : sample) grid.add(createBookCard(b, frame));

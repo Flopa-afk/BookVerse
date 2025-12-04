@@ -99,9 +99,9 @@ public class ChemistryBooks {
         grid.setOpaque(false);
 
         List<Book> sample = Arrays.asList(
-            new Book("Chemistry", "by Gorge bill", "700 DA", "BooksImg\\ImgChemistry/Chemistry.jpg"),
-            new Book("General Chemistry", "by Patric Moriss", "1200 DA", "BooksImg\\ImgChemistry/GeneralChemistry.jpg"),
-            new Book("Organic Chemistry", " by Tadashi Okuyama", "1900 DA", "BooksImg\\ImgChemistry/OrganicChemistry.jpg"));
+            new Book("Chemistry", "by Gorge bill", BooksCatalog.getPrice("Chemistry"), "BooksImg\\ImgChemistry/Chemistry.jpg"),
+            new Book("General Chemistry", "by Patric Moriss", BooksCatalog.getPrice("General Chemistry"), "BooksImg\\ImgChemistry/GeneralChemistry.jpg"),
+            new Book("Organic Chemistry", " by Tadashi Okuyama", BooksCatalog.getPrice("Organic Chemistry"), "BooksImg\\ImgChemistry/OrganicChemistry.jpg"));
         for (Book b : sample) grid.add(createBookCard(b, frame));
 
         container.add(grid, c);

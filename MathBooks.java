@@ -99,12 +99,12 @@ public class MathBooks {
         grid.setOpaque(false);
 
         List<Book> sample = Arrays.asList(
-            new Book("Advanced Defferential Equations", "by Youssef N.Raffoul", "700 DA", "BooksImg\\ImgMath/AdvancedDefferentialEquations.jpg"),
-            new Book("Applied Mathematics", "by J.David Logan", "550DA", "BooksImg\\ImgMath/AppliedMathematics.jpg"),
-            new Book("Fundamrntals Of Probability", " by Saeed Ghahramani", "1000 DA", "BooksImg\\ImgMath/FundamrntalsOfProbability.jpg"),
-            new Book("Mastering Algebra", " by Hamilton Education", "900 DA", "BooksImg\\ImgMath/MasteringAlgebra.jpg"),
-            new Book("Pure Mathematics", " by Edware Atkins", "1500 DA", "BooksImg\\ImgMath/PureMathematics.jpg"),
-            new Book("Numerical Analysis", " by S.H.Lui", "3000 DA", "BooksImg\\ImgMath/NumericalAnalysis.jpg")
+            new Book("Advanced Defferential Equations", "by Youssef N.Raffoul", BooksCatalog.getPrice("Advanced Defferential Equations"), "BooksImg\\ImgMath/AdvancedDefferentialEquations.jpg"),
+            new Book("Applied Mathematics", "by J.David Logan", BooksCatalog.getPrice("Applied Mathematics"), "BooksImg\\ImgMath/AppliedMathematics.jpg"),
+            new Book("Fundamrntals Of Probability", " by Saeed Ghahramani", BooksCatalog.getPrice("Fundamrntals Of Probability"), "BooksImg\\ImgMath/FundamrntalsOfProbability.jpg"),
+            new Book("Mastering Algebra", " by Hamilton Education", BooksCatalog.getPrice("Mastering Algebra"), "BooksImg\\ImgMath/MasteringAlgebra.jpg"),
+            new Book("Pure Mathematics", " by Edware Atkins", BooksCatalog.getPrice("Pure Mathematics"), "BooksImg\\ImgMath/PureMathematics.jpg"),
+            new Book("Numerical Analysis", " by S.H.Lui", BooksCatalog.getPrice("Numerical Analysis"), "BooksImg\\ImgMath/NumericalAnalysis.jpg")
         );
 
         for (Book b : sample) grid.add(createBookCard(b, frame));

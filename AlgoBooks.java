@@ -99,12 +99,12 @@ public class AlgoBooks {
         grid.setOpaque(false);
 
         List<Book> sample = Arrays.asList(
-            new Book("Algorithms Illuminated", "Tim Roughgarden", "700 DA", "BooksImg\\ImgAlgo/AlgorithmsIlluminated.jpg"),
-            new Book("Data Structures", "S.K.Srivastava", "550DA", "BooksImg\\ImgAlgo/DataStructures.jpg"),
-            new Book("Introducing Algorithms in C", "Luciano Manelli", "1000 DA", "BooksImg\\ImgAlgo/IntroductionAlgorithms.jpg"),
-            new Book("Java For Beginners", "Jack bin", "900 DA", "BooksImg\\ImgAlgo/Java.jpg"),
-            new Book("JavaScript Programming For Data Analysis", "Charlie J.Barrett", "1500 DA", "BooksImg\\ImgAlgo/JavaScript.jpg"),
-            new Book("Software Architecture", "Simon Tellier", "3000 DA", "BooksImg\\ImgAlgo/SoftwareArchitecture.jpg")
+            new Book("Algorithms Illuminated", "Tim Roughgarden", BooksCatalog.getPrice("Algorithms Illuminated"), "BooksImg\\ImgAlgo/AlgorithmsIlluminated.jpg"),
+            new Book("Data Structures", "S.K.Srivastava", BooksCatalog.getPrice("Data Structures"), "BooksImg\\ImgAlgo/DataStructures.jpg"),
+            new Book("Introducing Algorithms in C", "Luciano Manelli", BooksCatalog.getPrice("Introducing Algorithms in C"), "BooksImg\\ImgAlgo/IntroductionAlgorithms.jpg"),
+            new Book("Java For Beginners", "Jack bin", BooksCatalog.getPrice("Java For Beginners"), "BooksImg\\ImgAlgo/Java.jpg"),
+            new Book("JavaScript Programming For Data Analysis", "Charlie J.Barrett", BooksCatalog.getPrice("JavaScript Programming For Data Analysis"), "BooksImg\\ImgAlgo/JavaScript.jpg"),
+            new Book("Software Architecture", "Simon Tellier", BooksCatalog.getPrice("Software Architecture"), "BooksImg\\ImgAlgo/SoftwareArchitecture.jpg")
         );
 
         for (Book b : sample) grid.add(createBookCard(b, frame));

@@ -99,12 +99,12 @@ public class PhysicsBooks {
         grid.setOpaque(false);
 
         List<Book> sample = Arrays.asList(
-            new Book("Concepts In Thermal Physics", "by Youssef N.Raffoul", "700 DA", "BooksImg\\ImgPhysics/ConceptsInThermalPhysics.jpg"),
-            new Book("Creative Physics Problems with Solutions", "by J.David Logan", "550DA", "BooksImg\\ImgPhysics/CreativePhysicsProblemswithSolutions.jpg"),
-            new Book("Nuclear And Particle Physics", " by Saeed Ghahramani", "1000 DA", "BooksImg\\ImgPhysics/NuclearAndParticlePhysics.jpg"),
-            new Book("Origin Of Mass", " by Hamilton Education", "900 DA", "BooksImg\\ImgPhysics/OriginOfMass.jpg"),
-            new Book("Princip Of Physics", " by Edware Atkins", "1500 DA", "BooksImg\\ImgPhysics/PrincipOfPhysics.jpg"),
-            new Book("Quantum Physics", " by S.H.Lui", "3000 DA", "BooksImg\\ImgPhysics/QuantumPhysics.jpg")
+            new Book("Concepts In Thermal Physics", "by Youssef N.Raffoul", BooksCatalog.getPrice("Concepts In Thermal Physics"), "BooksImg\\ImgPhysics/ConceptsInThermalPhysics.jpg"),
+            new Book("Creative Physics Problems with Solutions", "by J.David Logan", BooksCatalog.getPrice("Creative Physics Problems with Solutions"), "BooksImg\\ImgPhysics/CreativePhysicsProblemswithSolutions.jpg"),
+            new Book("Nuclear And Particle Physics", " by Saeed Ghahramani", BooksCatalog.getPrice("Nuclear And Particle Physics"), "BooksImg\\ImgPhysics/NuclearAndParticlePhysics.jpg"),
+            new Book("Origin Of Mass", " by Hamilton Education", BooksCatalog.getPrice("Origin Of Mass"), "BooksImg\\ImgPhysics/OriginOfMass.jpg"),
+            new Book("Princip Of Physics", " by Edware Atkins", BooksCatalog.getPrice("Princip Of Physics"), "BooksImg\\ImgPhysics/PrincipOfPhysics.jpg"),
+            new Book("Quantum Physics", " by S.H.Lui", BooksCatalog.getPrice("Quantum Physics"), "BooksImg\\ImgPhysics/QuantumPhysics.jpg")
         );
 
         for (Book b : sample) grid.add(createBookCard(b, frame));

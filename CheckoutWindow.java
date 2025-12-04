@@ -4,6 +4,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.sql.SQLException;
 
 public class CheckoutWindow {
     private JFrame frame;
@@ -17,6 +18,9 @@ public class CheckoutWindow {
 
         frame.add(createHeader(), BorderLayout.NORTH);
         frame.add(createContent(totalPrice, totalItems), BorderLayout.CENTER);
+
+        // Auto-create database and schema on first run
+        DBHelper.initializeDatabase();
 
         frame.setVisible(true);
     }
@@ -139,7 +143,36 @@ public class CheckoutWindow {
             int currentSubtotal = CartManager.getTotal();
             int currentTax = Math.round(currentSubtotal * 0.10f);
             int currentFinal = currentSubtotal + currentTax;
-            showOrderConfirmation(currentFinal);
+            // Generate order metadata
+            String orderNum = "ORD-" + System.currentTimeMillis();
+            String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+
+            // Save client -> order -> order_items in DB
+            try {
+                int clientId = DBHelper.insertClient(name, email, address, phone);
+                if (clientId == -1) {
+                    JOptionPane.showMessageDialog(frame, "Failed to save client to database.", "DB Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                int orderId = DBHelper.insertOrder(clientId, orderNum, date, currentFinal);
+                if (orderId == -1) {
+                    JOptionPane.showMessageDialog(frame, "Failed to create order record.", "DB Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                boolean itemsOk = DBHelper.insertOrderItems(orderId, CartManager.getItems());
+                if (!itemsOk) {
+                    JOptionPane.showMessageDialog(frame, "Failed to save order items.", "DB Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(frame, "Database error: " + ex.getMessage(), "DB Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            showOrderConfirmation(orderNum, date, currentFinal);
         });
 
         form.add(placeOrder);
@@ -159,10 +192,7 @@ public class CheckoutWindow {
         return main;
     }
 
-    private void showOrderConfirmation(int total) {
-        String orderNum = "ORD-" + System.currentTimeMillis();
-        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-
+    private void showOrderConfirmation(String orderNum, String date, int total) {
         JPanel confirmPanel = new JPanel();
         confirmPanel.setLayout(new BoxLayout(confirmPanel, BoxLayout.Y_AXIS));
         confirmPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));

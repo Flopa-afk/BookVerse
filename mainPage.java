@@ -6,7 +6,20 @@ import javax.swing.*;
 
 public class mainPage {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(mainPage::createAndShow);
+        System.out.println("mainPage starting...");
+        try {
+            // Initialize database on app startup
+            DBHelper.initializeDatabase();
+            System.out.println("DB initialized (or attempted).");
+        } catch (Throwable t) {
+            System.err.println("Exception during DB initialization: " + t.getMessage());
+            t.printStackTrace();
+        }
+
+        SwingUtilities.invokeLater(() -> {
+            System.out.println("Scheduling GUI creation on EDT...");
+            createAndShow();
+        });
     }
 
     private static void createAndShow() {
@@ -166,7 +179,15 @@ public class mainPage {
         int bw = Math.max(1, bookCover.getIconWidth());
         int bh = Math.max(1, bookCover.getIconHeight());
 
-        Image scaledImg = baseImg.getScaledInstance((int)(bw * 0.4), (int)(bh * 0.4), Image.SCALE_SMOOTH);
+        // Compute scaled dimensions and ensure they are at least 1px.
+        int scaledW = Math.max(1, (int)Math.round(bw * 0.4));
+        int scaledH = Math.max(1, (int)Math.round(bh * 0.4));
+
+        // If image is tiny or missing, fall back to a reasonable display size
+        if (scaledW < 48) scaledW = 128;
+        if (scaledH < 48) scaledH = 192;
+
+        Image scaledImg = baseImg.getScaledInstance(scaledW, scaledH, Image.SCALE_SMOOTH);
         ImageIcon smallBookCover = new ImageIcon(scaledImg);
 
         JLabel bookLabel = new JLabel(smallBookCover);

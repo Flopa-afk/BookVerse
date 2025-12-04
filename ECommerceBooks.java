@@ -98,10 +98,10 @@ public class ECommerceBooks {
         JPanel grid = new JPanel(new GridLayout(0, 3, 20, 20));
         grid.setOpaque(false);
 
-        List<Book> sample = Arrays.asList(
-            new Book("E_commece Essentials", "by Kenneth C.Laudon", "700 DA", "BooksImg\\\\ImgE_commerce/E_commeceEssentials.jpg"),
-            new Book("E_commerce Simplified", " by Luis val", "3000 DA", "BooksImg\\ImgE_commerce/E_commerceSimplified.jpg")
-        );
+            List<Book> sample = Arrays.asList(
+                new Book("E_commece Essentials", "by Kenneth C.Laudon", BooksCatalog.getPrice("E_commece Essentials"), "BooksImg\\\\ImgE_commerce/E_commeceEssentials.jpg"),
+                new Book("E_commerce Simplified", " by Luis val", BooksCatalog.getPrice("E_commerce Simplified"), "BooksImg\\\\ImgE_commerce/E_commerceSimplified.jpg")
+            );
 
         for (Book b : sample) grid.add(createBookCard(b, frame));
 

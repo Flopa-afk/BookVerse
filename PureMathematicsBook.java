@@ -191,7 +191,7 @@ public class PureMathematicsBook {
         card.add(desc);
         card.add(Box.createVerticalStrut(14));
 
-        JLabel price = new JLabel("2200 DA");
+        JLabel price = new JLabel(BooksCatalog.getPrice("Pure Mathematics"));
         price.setFont(new Font("SansSerif", Font.BOLD, 20));
         price.setForeground(new Color(120, 0, 180));
         card.add(price);

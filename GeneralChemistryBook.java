@@ -191,7 +191,7 @@ public class GeneralChemistryBook {
         card.add(desc);
         card.add(Box.createVerticalStrut(14));
 
-        JLabel price = new JLabel("900 DA");
+        JLabel price = new JLabel(BooksCatalog.getPrice("General Chemistry"));
         price.setFont(new Font("SansSerif", Font.BOLD, 20));
         price.setForeground(new Color(120, 0, 180));
         card.add(price);
