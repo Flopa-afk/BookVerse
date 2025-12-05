@@ -21,6 +21,7 @@ public class ECommerceBooks {
 
         frame.add(createNavBar(frame), BorderLayout.NORTH);
         frame.add(createContentPanel(frame), BorderLayout.CENTER);
+        frame.add(createBottomBar(frame), BorderLayout.SOUTH);
 
         frame.setVisible(true);
     }
@@ -224,5 +225,25 @@ public class ECommerceBooks {
             price = p;
             imagePath = ip;
         }
+    }
+
+    private static JPanel createBottomBar(final JFrame frame) {
+        JPanel bottom = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        bottom.setOpaque(false);
+        bottom.setBorder(BorderFactory.createEmptyBorder(8, 16, 12, 16));
+
+        JButton back = new JButton("Back");
+        back.setFont(new Font("SansSerif", Font.BOLD, 14));
+        back.setForeground(new Color(120, 0, 180));
+        back.setBackground(Color.WHITE);
+        back.setFocusPainted(false);
+        back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        back.addActionListener(e -> {
+            frame.dispose();
+            BooksCategory.main(new String[]{});
+        });
+
+        bottom.add(back);
+        return bottom;
     }
 }
